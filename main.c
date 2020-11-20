@@ -1,10 +1,12 @@
-// #include "work2.c"
+#include "func2.c"
 #include <stdio.h>
 #define _CRT_SECURE_NO_WARNINGS
 int start() {
   int N;
-  printf("원하시는 번호를 입력하세요.\n");
+  fflush(stdin);
+  printf("원하시는 메뉴를 입력하세요.\n");
   printf("#-------------------#\n");
+  printf("0. 프로그램 종료\n");
   printf("1. 캘린더 확인\n");
   printf("2. 작업 기능\n");
   printf("3. 작업 확인 기능\n");
@@ -16,7 +18,14 @@ int start() {
 int main(void) {
   while(1) {
     int menu = start();
-  }
+    if(menu == 0) break;
+    else if(menu == 1) {
 
+    } else if(menu == 2) func2();
+    else if(menu == 3) {
+
+    }
+    printf("\n");
+  }
   return 0;
 }
