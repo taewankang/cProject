@@ -1,31 +1,33 @@
-#include "func2.c"
-#include <stdio.h>
-#define _CRT_SECURE_NO_WARNINGS
+#include "fun2.h"
+#include "calendar.h"
+
 int start() {
-  int N;
-  fflush(stdin);
-  printf("ì›í•˜ì‹œëŠ” ë©”ë‰´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.\n");
-  printf("#-------------------#\n");
-  printf("0. í”„ë¡œê·¸ë¨ ì¢…ë£Œ\n");
-  printf("1. ìº˜ë¦°ë” í™•ì¸\n");
-  printf("2. ì‘ì—… ê¸°ëŠ¥\n");
-  printf("3. ì‘ì—… í™•ì¸ ê¸°ëŠ¥\n");
-  printf("ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”: ");
-  scanf("%d", &N);
-  return N;
+    int N;
+    fflush(stdin);
+    printf("¿øÇÏ½Ã´Â ¸Ş´º¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n");
+    printf("#-------------------#\n");
+    printf("0. ÇÁ·Î±×·¥ Á¾·á\n");
+    printf("1. Ä¶¸°´õ È®ÀÎ\n");
+    printf("2. ÀÛ¾÷ ±â´É\n");
+    printf("3. ÀÛ¾÷ È®ÀÎ ±â´É\n");
+    printf("¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ");
+    scanf("%d", &N);
+    return N;
 }
 
 int main(void) {
-  while(1) {
-    int menu = start();
-    if(menu == 0) break;
-    else if(menu == 1) {
+    while (1) {
+        int menu = start();
+        if (menu == 0) break;
+        else if (menu == 1) {
+            mainCalendar();
 
-    } else if(menu == 2) func2();
-    else if(menu == 3) {
+        }
+        else if (menu == 2) func2();
+        else if (menu == 3) {
 
+        }
+        printf("\n");
     }
-    printf("\n");
-  }
-  return 0;
+    return 0;
 }
