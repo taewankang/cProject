@@ -12,7 +12,7 @@ char date[100];
 char startTime[100], endTime[100] , totalTime[100];
 char content[50][CONTENT_SIZE];
 clock_t end;
-clock_t start;
+clock_t starts;
 
 extern int func2Input();
 extern void func2FindFileTitle();

@@ -1,7 +1,7 @@
 #include "fun3.h"
 #include "fun2.h"
 
-void Day_check()
+int Day_check()
 {
 	while (getchar() != '\n');
 	fflush(stdin);
@@ -16,6 +16,7 @@ void Day_check()
 		if (fp_file == NULL)
 		{
 			printf("파일을 불러올 수 없습니다.\n");
+			
 			return 0;
 		}
 
@@ -31,9 +32,10 @@ void Day_check()
 
 	fclose(fp_file);
 
+	return 0;
 }
 
-void Time_check()
+int Time_check()
 {
 	while (getchar() != '\n');
 	fflush(stdin);
@@ -48,6 +50,7 @@ void Time_check()
 	if (fp_file == NULL)
 	{
 		printf("파일을 불러올 수 없습니다.\n");
+
 		return 0;
 	}
 
@@ -64,6 +67,8 @@ void Time_check()
 
 	printf("\n");
 	fclose(fp_file);
+
+	return 0;
 }
 
 int func3()

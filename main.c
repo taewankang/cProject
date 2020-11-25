@@ -1,4 +1,5 @@
 #include "fun2.h"
+#include "fun3.h"
 #include "calendar.h"
 
 int start() {
@@ -25,7 +26,7 @@ int main(void) {
         }
         else if (menu == 2) func2();
         else if (menu == 3) {
-
+			func3();
         }
         printf("\n");
     }

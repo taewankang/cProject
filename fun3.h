@@ -10,6 +10,6 @@ char temp[MAX_LENGTH];
 FILE *fp_file;
 char *s;
 
-void Day_check();
-void Time_check();
+int Day_check();
+int Time_check();
 int func3();
