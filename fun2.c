@@ -1,7 +1,8 @@
 #include "fun2.h"
 
 int func2Input() {
-    char c;
+	char c;
+	while (getchar() != '\n');
     fflush(stdin);
     printf("작업을 시작하시겠습니까?(Y/N): ");
     scanf("%c", &c);
@@ -81,8 +82,10 @@ int func2WriteMessage() {
     return idx;
 }
 
+
 void func2() {
     if (func2Input()) {
+		clock_t start = clock();
         func2FindFileTitle();
         FILE* fp = fopen(date, "a");
         if (fp == NULL) fp = fopen(date, "wt");
@@ -93,7 +96,30 @@ void func2() {
         fwrite(startTime, 1, strlen(startTime), fp);
         for (int i = 0; i < idx; i++) fwrite(content[i], 1, strlen(content[i]), fp);
         fwrite(endTime, 1, strlen(endTime), fp);
-        fclose(fp);
+		clock_t end = clock();
+
+		// 총합 시간 계산
+		int min=0, hour=0;
+		min = ((end - start) / CLOCKS_PER_SEC)/ 60;
+		hour = min / 60;
+		char temp[50] = "Total:";
+
+		sprintf(totalTime, "%d", hour);
+		strcat(temp, totalTime);
+		strcat(temp, "시");
+
+		sprintf(totalTime, "%d", min);
+		strcat(temp, totalTime);
+		strcat(temp, "분");
+
+		sprintf(totalTime, "%d", ((end - start) / CLOCKS_PER_SEC));
+		strcat(temp, totalTime);
+		strcat(temp, "초");
+		
+		fprintf(fp, "%s\n", temp);
+		//계산 끝
+
+		fclose(fp);
     }
     else printf("작업 취소\n");
 }
