@@ -71,6 +71,32 @@ int Time_check()
 	return 0;
 }
 
+void PlusWrite() {
+
+	while (getchar() != '\n');
+	fflush(stdin);
+
+	printf("날짜를 입력해 주세요( ex - 2020.11.25.txt ) ");
+	printf(">>");
+	gets_s(textfile, 40);
+	printf("\n");
+
+	fp_file = fopen(textfile, "a+");
+
+	clock_t starts = clock();
+	for (int i = 0; i < 50; i++) memset(content[i], '\0', CONTENT_SIZE);
+	func2CalculateTime(1); //시작 시간 저장
+	int idx = func2WriteMessage();
+	func2CalculateTime(0); //끝나는 시간 저장
+	fwrite(startTime, 1, strlen(startTime), fp_file);
+	for (int i = 0; i < idx; i++) fwrite(content[i], 1, strlen(content[i]), fp_file);
+	fwrite(endTime, 1, strlen(endTime), fp_file);
+	clock_t end = clock();
+
+
+	fclose(fp_file);
+}
+
 int func3()
 {
 	int num;
@@ -81,17 +107,22 @@ int func3()
 	printf("---확인할 기능을 선택해 주세요---.\n");
 	printf("1.작업 시간 확인\n");
 	printf("2.전체 작업 내용 확인\n");
+	printf("3.특정 날짜에 추가 입력\n");
 	scanf("%d", &num);
 
 	switch(num)
 	{
 	case 1:
-			Time_check();
+		Time_check();
 			break;
 
 		case 2:
 			Day_check();		
 			break;
+
+			case 3:
+				PlusWrite();
+				break;
 	}
 	return 0;
 }

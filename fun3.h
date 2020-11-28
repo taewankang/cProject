@@ -5,6 +5,7 @@
 #include <time.h>
 #define MAX_LENGTH 128
 
+char contents[50][MAX_LENGTH];
 char textfile[40];
 char temp[MAX_LENGTH];
 FILE *fp_file;
